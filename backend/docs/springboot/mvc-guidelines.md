@@ -4,20 +4,21 @@
 
 ```
 com.skcc.add
-├── xxx (업무 모듈)
-│   ├── controller
-│   ├── service
-│   │   └── impl
-│   ├── repository
-│   └── entity
-├── common
-│   ├── config
-│   ├── exception
-│   └── util
-└── app
+├── biz
+│   ├── common (공통 모듈)
+│   │   ├── config
+│   │   ├── exception
+│   │   └── util
+│   └── xxx (업무 모듈)
+│       ├── controller
+│       ├── service
+│       │   └── impl
+│       ├── repository
+│       └── entity
+└── app (애플리케이션 설정)
     ├── config
     ├── filter
-    └── security
+    └── interceptor
 ```
 
 ### 1.1 패키지 설명
