@@ -1,4 +1,4 @@
-package skcc.add.biz.test;
+package skcc.add.biz.test.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
