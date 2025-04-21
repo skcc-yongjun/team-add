@@ -25,7 +25,7 @@
 
 ## 개요
 
-- 엔드포인트: `/api/v1/...`
+- 엔드포인트: `/api/...`
 - 메소드: `GET/POST/PUT/DELETE`
 - 목적: API의 주요 기능 설명
 
@@ -360,16 +360,3 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 ```
-
-## 7. API 버전 관리
-
-### 7.1 URL 버전 관리
-
-- 형식: `/api/v{version}/...`
-- 예시: `/api/v1/academic/student-id`
-
-### 7.2 버전 변경 규칙
-
-- 주요 기능 변경: 메이저 버전 증가 (v1 → v2)
-- 하위 호환성 유지: 마이너 버전 증가 (v1.1 → v1.2)
-- 패치: 패치 버전 증가 (v1.1.1 → v1.1.2)
