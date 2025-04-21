@@ -28,6 +28,11 @@ spring:
 #        format_sql: true
 #        show_sql: true
 
+### JWT 설정 ###
+jwt:
+  secret: skcc-secret-key-skcc-secret-key-skcc-secret-key-skcc-secret-key # 최소 64바이트 이상
+  expiration: 1800000 # 30분
+
 ### MyBatis ###
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml

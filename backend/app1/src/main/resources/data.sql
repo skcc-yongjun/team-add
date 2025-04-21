@@ -1,0 +1,126 @@
+-- 학과 정보 Mock Data
+INSERT INTO acs_departments (
+    department_code, name, introduction, curriculum, career_path, admission_results, 
+    last_year_highest_gpa, last_year_average_gpa, last_year_lowest_gpa,
+    last_year_highest_rank, last_year_average_rank, last_year_lowest_rank,
+    created_at, updated_at, created_by, updated_by
+) VALUES 
+    ('CS001', '컴퓨터공학과', 
+    '4차 산업혁명을 선도하는 소프트웨어 전문가 양성',
+    '프로그래밍, 알고리즘, 인공지능, 빅데이터, 클라우드 컴퓨팅 등',
+    'SW 개발자, AI 엔지니어, 데이터 사이언티스트, 클라우드 아키텍트',
+    '2023학년도 경쟁률 5.2:1, 수시 일반전형 기준',
+    1.2, 2.1, 3.5, 1, 15, 35,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('ME001', '기계공학과',
+    '스마트 제조와 로봇공학을 선도하는 기계공학 전문가 양성',
+    '기계설계, 로봇공학, 자동화시스템, 열역학, 재료역학',
+    '기계설계 엔지니어, 로봇 엔지니어, 자동차 엔지니어, 생산기술 엔지니어',
+    '2023학년도 경쟁률 4.5:1, 수시 일반전형 기준',
+    1.5, 2.3, 3.8, 2, 20, 45,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('BA001', '경영학과',
+    '글로벌 비즈니스 리더 양성',
+    '경영전략, 마케팅, 재무관리, 인사조직, 글로벌경영',
+    '기업체 경영관리직, 컨설턴트, 금융기관, 공인회계사',
+    '2023학년도 경쟁률 6.1:1, 수시 일반전형 기준',
+    1.3, 2.0, 3.2, 1, 12, 30,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('EE001', '전기전자공학과',
+    '차세대 전기전자 기술 혁신 주도',
+    '반도체, 전자회로, 통신시스템, 제어공학, 전력시스템',
+    '반도체 엔지니어, 전자기기 개발자, 통신시스템 엔지니어',
+    '2023학년도 경쟁률 5.8:1, 수시 일반전형 기준',
+    1.4, 2.2, 3.6, 2, 18, 40,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('CH001', '화학공학과',
+    '친환경 화학공정 및 신소재 개발 전문가 양성',
+    '화학공정설계, 고분자공학, 촉매공학, 전기화학',
+    '화학공정 엔지니어, 신소재 연구원, 품질관리 엔지니어',
+    '2023학년도 경쟁률 4.8:1, 수시 일반전형 기준',
+    1.6, 2.4, 3.9, 3, 22, 48,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('AR001', '건축학과',
+    '지속가능한 건축 환경 창조',
+    '건축설계, 건축역사, 도시계획, 건축구조, 환경계획',
+    '건축가, 건설사업 관리자, 도시계획가, 인테리어 디자이너',
+    '2023학년도 경쟁률 5.5:1, 수시 일반전형 기준',
+    1.4, 2.3, 3.7, 2, 19, 42,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('MD001', '의학과',
+    '인류 건강을 선도하는 의료 전문가 양성',
+    '기초의학, 임상의학, 의료윤리, 실습과정',
+    '임상의사, 의학연구원, 의료정책전문가',
+    '2023학년도 경쟁률 8.5:1, 수시 일반전형 기준',
+    1.1, 1.8, 2.5, 1, 8, 20,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('AI001', '인공지능학과',
+    'AI 기술 혁신을 주도하는 전문가 양성',
+    '머신러닝, 딥러닝, 컴퓨터비전, 자연어처리, 로보틱스',
+    'AI 연구원, 머신러닝 엔지니어, 데이터 사이언티스트',
+    '2023학년도 경쟁률 6.5:1, 수시 일반전형 기준',
+    1.2, 2.0, 3.3, 1, 13, 32,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('EN001', '영어영문학과',
+    '글로벌 시대의 영어 전문가 양성',
+    '영문학, 영어학, 영미문화, 통번역, 비즈니스 영어',
+    '통번역가, 영어교육자, 국제업무 전문가, 문화콘텐츠 기획자',
+    '2023학년도 경쟁률 4.2:1, 수시 일반전형 기준',
+    1.7, 2.5, 4.0, 4, 25, 50,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('PS001', '정치외교학과',
+    '글로벌 정치외교 전문가 양성',
+    '정치이론, 국제관계, 외교정책, 지역학, 정치경제',
+    '외교관, 국제기구 전문가, 정책연구원, 정치분석가',
+    '2023학년도 경쟁률 4.7:1, 수시 일반전형 기준',
+    1.5, 2.3, 3.8, 3, 21, 46,
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM');
+
+-- 모집요강 Mock Data
+INSERT INTO acs_admission_guidelines (
+    admission_round, admission_type, evaluation_method, required_documents, schedule, additional_info,
+    created_at, updated_at, created_by, updated_by
+) VALUES
+    ('2024 수시', '학생부종합',
+    '1단계: 서류평가 100% (3배수 선발)\n2단계: 1단계 성적 70% + 면접 30%',
+    '- 학교생활기록부\n- 자기소개서\n- 교사추천서',
+    '원서접수: 2024.09.11~15\n서류제출: 2024.09.11~16\n면접: 2024.10.15~20\n최종발표: 2024.11.10',
+    '- 수능 최저학력기준 없음\n- 면접 불참 시 불합격 처리',
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('2024 수시', '학생부교과',
+    '학생부 교과 성적 100%',
+    '- 학교생활기록부',
+    '원서접수: 2024.09.11~15\n서류제출: 2024.09.11~16\n합격자발표: 2024.10.15',
+    '수능 최저학력기준:\n- 국어, 수학, 영어, 탐구(1과목) 중 2개 영역 등급 합 6 이내',
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('2024 수시', '지역인재',
+    '1단계: 서류평가 100% (3배수 선발)\n2단계: 1단계 성적 60% + 면접 40%',
+    '- 학교생활기록부\n- 자기소개서',
+    '원서접수: 2024.09.11~15\n서류제출: 2024.09.11~16\n면접: 2024.10.22~25\n최종발표: 2024.11.10',
+    '- 고교 유형: 지역 소재 고교 졸업(예정)자\n- 수능 최저학력기준 없음',
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('2024 정시', '수능위주',
+    '수능 100%',
+    '- 학교생활기록부\n- 수능성적표',
+    '원서접수: 2024.12.30~2025.01.03\n서류제출: 2024.12.30~2025.01.04\n합격자발표: 2025.02.05',
+    '수능 반영방법:\n- 국어 25%\n- 수학 30%\n- 영어 20%\n- 탐구 25%',
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'),
+
+    ('2024 정시', '실기위주',
+    '1단계: 수능 60% + 학생부 40% (5배수 선발)\n2단계: 1단계 성적 40% + 실기 60%',
+    '- 학교생활기록부\n- 수능성적표\n- 포트폴리오(해당자)',
+    '원서접수: 2024.12.30~2025.01.03\n서류제출: 2024.12.30~2025.01.04\n실기: 2025.01.15~20\n합격자발표: 2025.02.05',
+    '- 실기고사 불참 시 불합격 처리\n- 포트폴리오 제출 시 A4 10매 이내',
+    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'SYSTEM', 'SYSTEM'); 
