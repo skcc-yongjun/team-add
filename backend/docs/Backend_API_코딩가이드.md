@@ -10,11 +10,11 @@
 
 ### 1.2 API ID 규칙
 
-- 형식: `ADM-API-XXX-YY`
+- 형식: `ADM-{화면ID}-API-{순번}`
   - ADM: 시스템 구분, 다른 시스템인 경우, 명칭이 달라질 수 있음.
   - API: API 문서임을 나타냄
-  - XXX: 요구사항 번호
-  - YY: API 순번
+  - 화면ID: 관련 화면 ID (예: SCR-XXX)
+  - 순번: 001부터 시작하는 3자리 일련번호
 
 ## 2. API 문서 작성 형식
 
@@ -101,7 +101,7 @@ curl -X POST "http://api.example.com/endpoint" \
 /**
  * API 요청/응답 DTO
  *
- * API ID: ADM-API-XXX-YY
+ * API ID: ADM-SCR-XXX-API-YYY
  * 요구사항 ID: ADM-REQ-XXX
  * 화면 ID: ADM-SCR-XXX
  *
@@ -116,7 +116,7 @@ public class ApiRequestDto {
     @Schema(description = "필드 설명")
     private String field;
 }
-````
+```
 
 ### 3.2 Controller 클래스 작성
 
@@ -139,7 +139,7 @@ public class ApiController {
     /**
      * API 메소드
      *
-     * API ID: ADM-API-XXX-YY
+     * API ID: ADM-SCR-XXX-API-001
      * 요구사항 ID: ADM-REQ-XXX
      * 화면 ID: ADM-SCR-XXX
      *
@@ -151,7 +151,9 @@ public class ApiController {
     @Operation(summary = "API 제목", description = "API 상세 설명")
     @PostMapping("/endpoint")
     public ResponseEntity<ApiResponseDto> apiMethod(
-            @Valid @RequestBody ApiRequestDto request) {
+            @Valid @RequestBody ApiRequestDto request,
+            @PathVariable(name = "id") Long id,
+            @RequestParam(name = "type") String type) {
         // 구현
     }
 }
@@ -168,24 +170,52 @@ public class ApiController {
  *
  * 관련 화면:
  * - ADM-SCR-XXX: 화면 설명
+ *
+ * 주의사항:
+ * - Entity를 Controller에 직접 반환하지 않고, 반드시 DTO로 변환하여 반환
+ * - Entity와 DTO 간의 매핑은 명시적으로 구현
  */
 public interface ApiService {
     /**
      * 서비스 메소드
      *
-     * API ID: ADM-API-XXX-YY
+     * API ID: ADM-SCR-XXX-API-001
      * 요구사항 ID: ADM-REQ-XXX
      * 화면 ID: ADM-SCR-XXX
      *
      * 처리 흐름:
-     * 1. 첫 번째 처리 단계
-     * 2. 두 번째 처리 단계
-     * 3. 세 번째 처리 단계
+     * 1. 요청 DTO 유효성 검증
+     * 2. Entity 조회 및 비즈니스 로직 처리
+     * 3. Entity를 ResponseDTO로 변환하여 반환
      *
      * @param request 요청 데이터
-     * @return 응답 데이터
+     * @return 응답 DTO
      */
     ApiResponseDto processRequest(ApiRequestDto request);
+}
+```
+
+### 3.3.1 Service 구현 시 주의사항
+
+```java
+@Service
+@RequiredArgsConstructor
+public class ApiServiceImpl implements ApiService {
+
+    private final EntityMapper entityMapper;
+
+    @Override
+    public ApiResponseDto processRequest(ApiRequestDto request) {
+        // 1. Entity 조회
+        Entity entity = repository.findById(request.getId())
+            .orElseThrow(() -> new EntityNotFoundException());
+
+        // 2. 비즈니스 로직 처리
+        entity.process(request);
+
+        // 3. Entity를 DTO로 변환하여 반환 (직접 Entity 반환 금지)
+        return entityMapper.toDto(entity);
+    }
 }
 ```
 
@@ -263,7 +293,7 @@ class ApiControllerIT {
 ```http
 ###
 # API 제목
-# API ID: ADM-API-XXX-YY
+# API ID: ADM-SCR-XXX-API-YYY
 ###
 
 ### 환경 변수 설정
@@ -360,3 +390,4 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 ```
+````
